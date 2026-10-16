@@ -359,6 +359,11 @@ export default function AdminLayout({
       permissionKey: 'sms_debugger'
     },
     {
+      title: 'Buy SMS',
+      icon: 'ri-bank-card-line',
+      path: '/admin/sms-credit'
+    },
+    {
       title: 'Blog',
       icon: 'ri-article-line',
       path: '/admin/blog',
