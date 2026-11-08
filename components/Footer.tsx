@@ -127,6 +127,12 @@ export default function Footer() {
 
         <div className="border-t border-white/15 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/60">
           <p>&copy; {new Date().getFullYear()} {siteName}. All rights reserved.</p>
+          <p>
+            Powered by{" "}
+            <a href="https://doctorbarns.com" target="_blank" rel="noopener" className="text-white/60 hover:underline">
+              Doctor Barns Tech
+            </a>
+          </p>
           <div className="flex gap-4 grayscale opacity-50">
             <i className="ri-visa-line text-2xl"></i>
             <i className="ri-mastercard-line text-2xl"></i>
