@@ -3,6 +3,8 @@ import { createClient } from "@/lib/db/supabase-compat";
 import { isPlainPostgres } from "@/lib/db/mode";
 import { authorizeRpc, resolveRestActor } from "@/lib/db/rest-guard";
 
+import { guardRpc } from "@/lib/db/data-api-guard";
+
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
@@ -18,7 +20,7 @@ export async function OPTIONS() {
   return new NextResponse(null, { status: 204, headers: cors });
 }
 
-export async function POST(
+async function postUnguarded(
   req: NextRequest,
   ctx: { params: Promise<{ fn: string }> }
 ) {
@@ -58,3 +60,5 @@ export async function POST(
   }
   return NextResponse.json(data, { headers: cors });
 }
+
+export const POST = guardRpc(postUnguarded);
